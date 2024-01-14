@@ -1,0 +1,592 @@
+/* Sizechart Layout */
+/**
+*
+* VERSION 5.0
+*
+*
+**/
+/* iOS fix */
+body.popup, body.popup #bodyContainer, body.popup #mainContent {
+	width: 1px; 
+	min-width: 100% !important;
+}
+.mainContent {
+	width: 100%;
+}
+div, .currentDivision, .currentCategory, .sizechartDropdown li {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.chartSection {
+	width: 100%;
+	overflow: hidden;
+	padding: 0 1em;
+}
+.chartTable {
+	width: 100%;
+	overflow: hidden;
+}
+.tableHead {
+	float: left;
+	width: 10%;
+	background-color: #f6f6f6;
+	border-left: 3px solid #f6f6f6;
+	border-top: 3px solid #f6f6f6;
+	border-bottom: 3px solid #f6f6f6;
+}
+
+.tableWrap {
+	float: left;
+	width: 90%;
+	border-right: 3px solid #f6f6f6;
+	border-top: 3px solid #f6f6f6;
+	border-bottom: 3px solid #f6f6f6;
+}
+
+#size_chart_content {
+	width: 100%;
+	max-width: 1020px;
+	margin: 0 auto;
+}
+
+/* Desc. Links */
+.item_desc a {
+    text-decoration: underline;
+    color: blue;
+}
+
+/* Heading Styles */
+/* Section Headers */
+#size_chart_data_wrap h2 {
+	text-align: center;
+	margin: 1em 0 0;
+	display: table;
+	white-space: nowrap;
+	color: #000000;
+	font-weight: 700;
+}
+#size_chart_data_wrap h2:before {
+	background: linear-gradient(to bottom, #000000, #000000) no-repeat center left / 98% .1em;
+  content: '';
+  display: table-cell;
+  width: 50%;
+}
+#size_chart_data_wrap h2:after {
+	background: linear-gradient(to bottom, #000000, #000000) no-repeat center right / 98% .1em;
+  content: '';
+  display: table-cell;
+  width: 50%;
+}
+/* Accordion Headers */
+#size_chart_data_wrap h3 {
+	color: #000000;
+	margin: 0.75em 0;
+	position: relative;
+	outline: none;
+}
+h3.ui-accordion-header {
+	padding: 0 0 0.75em 0;
+	border-bottom: 2px solid #bbbbbb;
+	border-radius: 0px;
+}
+h3.ui-state-active, h3.lastAccordion {
+	border-bottom: none;
+}
+#size_chart_data_wrap h3 span {
+	position: absolute;
+	right: 1em;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	height: 25px;
+	width: 25px;
+}
+h3.ui-accordion-header span {
+	background-size: auto;
+}
+h3.ui-state-active span {
+	background-size: auto;
+}
+
+#size_chart_data_wrap h4 {
+	color: #000000;
+	margin: 1em 0;
+}
+
+/* Accordion Content Styles */
+div.ui-accordion-content {
+	border-bottom: 2px solid #bbbbbb;
+	padding-bottom: 0.5em;
+}
+div.lastAccordion {
+	border-bottom: none;
+}
+/* Dropdown Styles */
+.size_chart_select_wrap {
+	float: left;
+	position: relative;
+	padding: 1em;
+	cursor: pointer;
+}
+.sizechartDivisionSelector, .sizechartCategorySelector {
+	position: relative;
+}
+.active .currentDivision, .active .currentCategory {
+	background-color: #cccccc;
+}
+.currentDivision, .currentCategory {
+	background-color: #eeeeee;
+	color: #000000;
+	display: block;
+	height: 2.375em;
+	padding: 0.5em;
+	width: 100%;
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: 98% 50%;
+}
+.sizechartDropdown {
+	max-height: 0;
+	height: auto;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	z-index: 50;
+	-webkit-transition: max-height 0.5s;
+	-moz-transition: max-height 0.5s;
+	transition: max-height 0.5s;
+}
+.active .sizechartDropdown {
+	max-height: 1000px;
+}
+.sizechartDropdown li {
+	border-bottom: 2px solid #eeeeee;
+	border-left: 2px solid #eeeeee;
+	border-right: 2px solid #eeeeee;
+	background-color: #ffffff;
+	height: 2.375em;
+	padding: 0.5em;
+}
+.sizechartDropdown li:hover {
+	background-color: #999999;
+	color: #ffffff;
+}
+/* Size Chart Styles */
+.chartSection {
+	width: 100%;
+	overflow: hidden;
+	padding: 0 1em;
+}
+.chartTable {
+	width: 100%;
+}
+.tableHead {
+	float: left;
+	width: 10%;
+	background-color: #f6f6f6;
+	border-left: 3px solid #f6f6f6;
+	border-top: 3px solid #f6f6f6;
+	border-bottom: 3px solid #f6f6f6;
+}
+
+.tableWrap {
+	float: left;
+	width: 90%;
+	border-right: 3px solid #f6f6f6;
+	border-top: 3px solid #f6f6f6;
+	border-bottom: 3px solid #f6f6f6;
+}
+
+/* Measurement Toggle Styles */
+.measurement_toggle {
+	max-height: 2.375em;
+	width: 380px;
+	max-width: 90%;
+	overflow: hidden;
+	margin: 1em auto;
+	text-align: center;
+	border: 2px solid #eeeeee;
+}
+.measurement_toggle div {
+	float: left;
+	background-color: #ffffff;
+	color: #333333;
+	cursor: pointer;
+	font-weight: 400;
+	padding: 0.5em;
+	height: 2.375em;
+	color: #333333;
+}
+.measurement_toggle div.active {
+	font-weight: 700;
+	background-color: #eeeeee;
+}
+.measurement_single {
+	display: none;
+	text-align: center;
+	margin: 1em;
+}
+.section_image_wrap {
+	text-align: center;
+}
+.section_image_wrap img {
+	margin: 1em auto; 
+}
+.section_image_wrap img, .fit_guide_box img {
+	max-width: 100%;
+}
+.section_item img {
+	max-width: 100%;
+}
+
+.dataWrap {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-flex: 1 0 auto;
+	-webkit-flex: 1 0 auto;
+	flex: 1 0 auto;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+}
+
+.colWidth12 {width: 8.33%;}
+.colWidth12.doubleCol {width: 16.66%;}
+
+.small-data .tableHead .cell {
+	color: #333333;
+}
+.cell {
+	border-bottom: 2px solid #ffffff;
+	color: #999999;
+	min-height: 33px;
+	min-width: 33px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	padding: 0.533em;
+}
+.cellText {
+	height: auto;
+	margin: auto 0;
+	text-align: center;
+	width: 100%;
+}
+.alpha {
+	border-bottom: 2px solid #bbbbbb;
+	color: #333333;
+	font-weight: bold;
+}
+.tableHead .alpha {
+	border-bottom: none;
+}
+.tableHead .alpha .cell {
+	border-bottom: 0px;
+}
+
+/* Online Exclusive Styles */
+.online_exclusive {
+	color: #005596;
+	background-color: #D3EBFF;
+}
+
+/* Online Exclusive Banner */
+.online_highlight {
+	width: 100%;
+	text-align: center;
+	margin: 1.067em 0;
+}
+.online_highlight .online_exclusive {
+	padding: 0.5em;
+	margin: 0px auto;
+}
+/* hide unit cells */
+.chartHide {
+	position: absolute;
+	left: -10000px;
+}
+
+/* Mobile Scroll */
+.small-data .tableHead {
+	width: 20%;
+}
+.small-data .tableWrap { 
+	width: 80%;
+	position: relative;
+	float: left;
+	overflow: hidden;
+	border-bottom: 3px solid #f6f6f6;
+	border-right: 3px solid #f6f6f6;
+	border-top: 3px solid #f6f6f6;
+}
+.data-table-body {
+	width: 100%;
+}
+.scrollWide3 {min-width: 290px;}
+.scrollWide4 {min-width: 305px;}
+.scrollWide5 {min-width: 380px;}
+.scrollWide6 {min-width: 450px;}		
+.scrollWide7 {min-width: 525px;}		
+.scrollWide8 {min-width: 600px;}		
+.scrollWide9 {min-width: 675px;}		
+.scrollWide10 {min-width: 750px;}		
+.scrollWide11 {min-width: 825px;}
+.scrollWide12 {min-width: 900px;}
+
+.shoe_size_table .scrollWide4, .shoe_sock_size_table .scrollWide4 {min-width: 400px;}
+.shoe_size_table .scrollWide5, .shoe_sock_size_table .scrollWide5 {min-width: 500px;}
+.shoe_size_table .scrollWide6, .shoe_sock_size_table .scrollWide6 {min-width: 600px;}
+.shoe_size_table .scrollWide7, .shoe_sock_size_table .scrollWide7 {min-width: 700px;}
+.shoe_size_table .scrollWide8, .shoe_sock_size_table .scrollWide8 {min-width: 800px;}
+.shoe_size_table .scrollWide9, .shoe_sock_size_table .scrollWide9 {min-width: 900px;}
+
+.scrollWide1 .cell {width: 100%;}
+.scrollWide2 .cell, .scrollWide2 .shoeCol {width: 50%;}
+.scrollWide3 .cell, .scrollWide3 .shoeCol {width: 33.3%;}
+.scrollWide4 .cell, .scrollWide4 .shoeCol {width: 25%;}
+.scrollWide5 .cell, .scrollWide5 .shoeCol {width: 20%;}
+.scrollWide6 .cell, .scrollWide6 .shoeCol {width: 16.66%;}
+.scrollWide7 .cell, .scrollWide7 .shoeCol {width: 14.28%;}
+.scrollWide8 .cell, .scrollWide8 .shoeCol {width: 12.5%;}
+.scrollWide9 .cell, .scrollWide9 .shoeCol {width: 11.11%;}
+.scrollWide10 .cell {width: 10%;}
+.scrollWide11 .cell {width: 9.09%;}
+.scrollWide12 .cell {width: 8.33%;}
+.scrollWide13 .cell {width: 7.69%;}
+.scrollWide14 .cell {width: 7.14%;}
+.scrollWide15 .cell {width: 6.66%;}
+
+.scrollChart {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	width: 100%;
+}
+.scrollChart .chartColumn {		
+    min-width: 75px;		
+}
+.small-data .tableHead .cell {
+	width: 100%;
+	border-right: 2px solid #bbbbbb;
+}
+.small-data .cell {
+	border-bottom: none;
+	border-right: 2px solid #ffffff;
+}
+.data-row-master .cell {
+	border-right: 2px solid #ffffff;
+	color: #333333;
+}
+
+.cell-row-wrap {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-flex: 1 0 auto;
+	-webkit-flex: 1 0 auto;
+	flex: 1 0 auto;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	background-color: #ffffff;
+}
+.cell-row-wrap:nth-child(odd) {
+	background-color: #f6f6f6;
+}
+.tableHead .cell-row:nth-child(even) {
+	background-color: #ffffff;
+}
+.cell-row {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-flex: 1 0 auto;
+	-webkit-flex: 1 0 auto;
+	flex: 1 0 auto;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+}
+.row-wrap-master {
+	color: #333333;
+}
+
+/* Version 2 additions */
+/* AVAILABILITY CHARTS */
+.availability_chart_table {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+
+}
+.availability_chart_table .tableWrap {
+	border: none;
+}
+.availability_chart_tableHead {
+	width: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	text-align: center;
+}
+.availability_chart_tableHead .yAxis {
+	-webkit-box-flex: 1 0 auto;
+	-webkit-flex: 1 0 auto;
+	flex: 1 0 auto;
+}
+.xAxis {
+	text-align: center;
+	width: 100%;
+	border-bottom: 2px solid #ffffff;
+	border-right: 2px solid #ffffff;
+	background-color: #f6f6f6;
+	min-height: 33px;
+	padding: 0.533em;
+}
+
+.availability_chart_table_scroll_content .cell-row-wrap {
+	border-left: 2px solid #999999;
+	background-color: #f6f6f6;
+}
+.availability_chart_table .cell {
+    border-bottom: 2px solid #ffffff;
+}
+
+/* SHOE CHARTS */
+.shoe_size_table, .shoe_sock_size_table {
+	margin-top: 0.75em;
+}
+.shoe_size_table .flexchart, .shoe_sock_size_table .flexchart {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.shoe_size_table .shoeCol, .shoe_sock_size_table .shoeCol {
+	-webkit-box-flex: 1 0 auto;
+	-webkit-flex: 1 0 auto;
+	flex: 1 0 auto;
+	min-width: 100px;
+}
+.shoe_size_table .tableWrap, .shoe_sock_size_table .tableWrap {
+	width: 100%;
+	border: 2px solid #f6f6f6;
+}
+.shoe_size_table .shoeCol:nth-child(even), .shoe_sock_size_table .shoeCol:nth-child(even) {
+	background-color: #f6f6f6;
+}
+.shoe_size_table .shoeCol .cell, .shoe_sock_size_table .shoeCol .cell {
+	width: 100%;
+	border-bottom: 2px solid #ffffff;
+	height: 38px;
+}
+.shoe_size_table .shoeCol .country_unit, .shoe_sock_size_table .shoeCol .country_unit {
+	color: #333333;
+	height: 48px;
+}
+
+.shoe_size_table .scrollChart, .shoe_sock_size_table .scrollChart {
+	border: none;
+}
+.sizeChartIntro a.shoe_intro {
+	display: block;
+	margin: 1.5em auto;
+	color: #0466ca;
+	text-align: center;
+	font-weight: 700;
+}
+
+/* FIT GUIDE STYLES */
+.fit_guide_box {
+	padding: 0 1em;
+}
+
+
+
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden {
+	display: none;
+}
+.ui-helper-hidden-accessible {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+.ui-helper-reset {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	list-style: none;
+}
+.ui-helper-clearfix:before,
+.ui-helper-clearfix:after {
+	content: "";
+	display: table;
+	border-collapse: collapse;
+}
+.ui-helper-clearfix:after {
+	clear: both;
+}
+.ui-helper-clearfix {
+	min-height: 0; /* support: IE7 */
+}
+.ui-helper-zfix {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	opacity: 0;
+	filter:Alpha(Opacity=0); /* support: IE8 */
+}
+
+.ui-front {
+	z-index: 100;
+}
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.ui-icon {
+	display: block;
+	text-indent: -99999px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+}
+
+.icon-plus { background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20height%3D%2210%22%20width%3D%2210%22%20viewBox%3D%220%200%2010%2010%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M4%200h2v10H4zM0%204h10v2H0z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; }
+
+.icon-minus { background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20height%3D%2210%22%20width%3D%2210%22%20viewBox%3D%220%200%2010%2010%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M0%204h10v2H0z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; }
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+.ui-widget-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.ui-accordion .ui-accordion-header {
+	display: block;
+	cursor: pointer;
+	position: relative;
+	min-height: 0; /* support: IE7 */
+}
+.ui-accordion .ui-accordion-content {
+	border-top: 0;
+	overflow: hidden;
+}

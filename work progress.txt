@@ -1,0 +1,2 @@
+1. Check Add to cart => checked and ok
+2. Proceed for checkout=> for guest customer verify based on otp via phone or email->in progress
